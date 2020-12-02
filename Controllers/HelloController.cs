@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace WebAppTest.Controllers
 {
+    [Route("/helloworld/")]
     public class HelloController : Controller
     {
         [HttpGet]
-        [Route("/helloworld/")]
+        
         public IActionResult Index()
         {
             string html = "<form method='post' action='/helloworld/'>" +
@@ -21,8 +22,8 @@ namespace WebAppTest.Controllers
 
         /*[HttpGet]
         [Route("/helloworld/welcome/{name?}")]*/
+        [HttpGet("welcome/{name?}")]
         [HttpPost]
-        [Route("/helloworld/")]
         public IActionResult Welcome(string name = "World!")
         {
             return Content("<h1>Welcome to my app, " + name + " </h1>", "text/html");
